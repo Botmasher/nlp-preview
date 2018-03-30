@@ -203,4 +203,26 @@
 	- with large vocabulary of words, translating to phonemes reduces number of comparisons to make overall
 
 ## 8. Quiz: Phonetics
-- 
+- pangrams are sentences containing every letter in the alphabet
+- distinguish regular pangrams from phonetic pangrams (ones that contain every phoneme)
+- determine which sentences are both grapheme-based and phoneme-based pangrams
+- me: I ended up building a separate project ("Pangrammatron") to evaluate both types of pangrams
+	- "How vexingly quick daft zebras jump!"
+	- "Crazy Fredrick bought many very exquisite opal jewels."
+	- "The hungry purple dinosaur ate the kind, zingy fox, the jabbering crab, and the mad whale and started vending and quacking."
+	- "The quick brown fox jumped over the lazy dog."
+	- "The beige hue on the waters of the loch impressed all, including the French queen, before she heard that symphony again, just as young Arthur wanted."
+
+## 9. Acoustic Models and the Trouble with Time
+- feature extraction addressed noise from environment and variability
+- phonetics gave model for mapping to sounds in language
+- acoustic model maps sound to phonetic representation
+- what about matching variable lengths of same word?
+	- Dynamic Time Warping algorithm
+	- DTW finds similar waves even when time lengths differ
+	- DTW can align new words to most similar example in a dictionary
+	- HMMs are suited to solving this kind of time sequence patterning as well
+	- DNNs actually make the sequencing problem reappear
+		- hybrid HMM/DNN approach
+		- other ways of solving
+	- solve the problem in DNNS with CTC (Connectionist Temporal Classification)
