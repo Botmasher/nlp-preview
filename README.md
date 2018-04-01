@@ -8,7 +8,7 @@ Udacity offers multiple sample lessons for you to try out their NLP Nanodegree a
 
 ## Do I recommend the program?
 
-I started the material today and I'll be going through it over the next few days. I'll leave my thoughts here.
+I'm currently going through the last sample lesson. I'll leave some thoughts once I'm done.
 
 ## Contributing
 

@@ -226,3 +226,50 @@
 		- hybrid HMM/DNN approach
 		- other ways of solving
 	- solve the problem in DNNS with CTC (Connectionist Temporal Classification)
+
+## 10. Language Models
+- we have feature extraction for noise and speech variability
+- we have HMMs for converting features into phonemes
+	- sequencing problems for acoustic model
+- what about language ambiguity?
+- need the ASR system to determine optimal word combinations
+	- provide knowledge of those combinations to model
+	- provide contextual mechanism for it to learn on its own
+- possible solutions
+
+## 11. Deep Neural Networks as Speech Models
+- HMMs work, so why another model?
+	- imagine we have all necessary data and max processing power
+	- which takes us further: HMM or some other model?
+	- Adam Coates from Baidu
+		- slope of ASR accuracy levels off with added training
+		- end-to-end DNNs not great for small datasets but great with added data and larger models
+- process at this point:
+	1. speech to features
+		- MFCC
+	2. features to acoustic model
+		- HMMs
+	3. acoustic model to phonemes
+		- HMMs
+	4. phonemes to words
+		- HMMs
+	5. words to language model
+		- N-grams
+	6. language model to text
+		- N-grams
+- replace much of above with DNNs
+	- MFCCs were based on human sound, getting features from spectrogram
+		- CNN can find visual patterns, too!
+	- HMMs were good with probabilities and time series data
+		- RNN can deal with time series, too!
+	- HMMs also sequence sound units into words
+		- RNN gives "probability densities over each time slice"
+		- but a CTC layer can turn RNN output into words!
+	- DNN still makes language mistakes, especially when it lacks many relevant examples
+		- can it learn from audio data?
+		- currently lack enough audio data
+		- N-grams still useful 
+		- but NLM layer can train using huge amount of text
+		- NLM layer scores spelling and context probabilities
+	- so extraction portion can be CNN
+	- so acoustic portion can be RNN + CTC layers
